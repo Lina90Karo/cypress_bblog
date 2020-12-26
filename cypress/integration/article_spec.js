@@ -8,6 +8,7 @@ describe('Article CRUD operation', function () {
     })
 
     beforeEach(function () {
+        // login via POST request command
         cy.loginViaPost(this.registeredUser.email, this.registeredUser.password)
     })
 
