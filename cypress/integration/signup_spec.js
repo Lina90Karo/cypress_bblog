@@ -18,8 +18,6 @@ describe('Sign-up', function () {
             // error message should be visible
             signup.accountCreationError()
                 .should('be.visible')
-                // .and('contain', `email can't be blank`)
-                // .and('contain', `username can't be blank`);
         })
 
     })
