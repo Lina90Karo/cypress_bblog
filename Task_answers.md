@@ -6,7 +6,7 @@ I’ve prepared automated tests for provided site: https://qa-task.backbasecloud
 
 You can find it on my github https://github.com/Lina90Karo/cypress_bblog and also in the `cypress_bblog-main` directory. 
 
-Instruction with steps how to run the written test you can find in the README.md file which is located in the test directory and in GitHub repository.
+Instruction with steps how to run the written test you can find in the [README.md](https://github.com/Lina90Karo/cypress_bblog/blob/main/README.md) file which is located in the test directory and in GitHub repository.
 
 
 **TEST CASES**
