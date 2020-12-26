@@ -15,27 +15,8 @@ export default class signUpPage {
         this.submitButton().should('be.visible');
     }
 
-  
-
     generateRandomEmail = () => {
-       // const chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
-        // let
-        //     email = '',
-        //     tmp;
-
-        // for (let i = 0; i < 32; i++) {
-        //     tmp = chars.charAt(Math.round(chars.length * Math.random()));
-        //     email = email + tmp;
-        // }
-        // tmp = '';
         return cy.generateRandomString() + '@' + cy.generateRandomString() + '.com'
-        // const email = this.generateRandomString() + '@' + this.generateRandomString() + '.com'
-        // email = email + "@";
-        // for (let i = 0; i < 64; i++) {
-        //     tmp = chars.charAt(Math.round(chars.length * Math.random()));
-        //     email = email + tmp;
-        // }
-        // return email + ".com";
     }
 
 }
