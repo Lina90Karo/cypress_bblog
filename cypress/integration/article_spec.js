@@ -36,6 +36,7 @@ describe('Article CRUD operation', function () {
 
         it('Read just added post on home page ', function () {
             cy.visit('/')
+            cy.contains('Loading articles').should('not.be.visible')
             cy.get('.nav-link').contains('Global Feed').click()
             checkArticle(article)
             cy.get('a.preview-link').contains(article.title).click()
@@ -53,9 +54,14 @@ describe('Article CRUD operation', function () {
         })
          
          it('Open article as a not logged in user ', function () {
-            cy.visit('/settings')
-            cy.get('button').contains('logout').click()
+            // logout as user and click through to the homepage
+            //  to work around page load event not being fired issue
             cy.visit('/')
+            cy.get('[routerlink="/settings"]').click()
+            cy.get('button').contains('logout').click()
+            cy.get('h1').contains('Sign in').should('be.visible')
+            cy.get('.dynamic-form').should('be.visible')
+            cy.get('a.navbar-brand[href="#/"]').click()
             cy.get('.nav-link').contains('Global Feed').click()
             checkArticle(article)
             cy.get('.author').should('contain', this.registeredUser.username)
@@ -134,7 +140,6 @@ describe('Article CRUD operation', function () {
         cy.url().should('include', `${cy.baseUrlNoAuth()}/article/`)
         cy.get('.container h1').should('contain', article.title)
         cy.get('h2').should('be.visible').should('contain.text', article.md_header)
-        cy.get('.comment-form').should('be.visible')
     }
 
 })
